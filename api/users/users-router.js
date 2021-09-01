@@ -14,8 +14,8 @@ router.get('/', (req, res, next) => {
   .catch(next)
 });
 
-router.get('/:id', validateUserId,( req, res) => {
-  res.json(req.users);
+router.get('/:id', validateUserId,(req, res) => {
+  res.json(req.user);
 });
 
 router.post('/', validateUser, (req, res, next) => {
