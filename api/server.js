@@ -1,12 +1,17 @@
 const express = require('express');
+
 const server = express();
-const {logger}  = require("./middleware/middleware")
-const userRouter = require('./users/users-router');
-// remember express by default cannot parse JSON in request bodies
+const usersRouter = require('./users/users-router')
+const { logger } = require("./middleware/middleware")
+
+
+
 server.use(express.json())
-// global middlewares and the user's router need to be connected here
 server.use(logger)
-server.use('/api/users', userRouter);
+server.use('/api/users' , usersRouter)
+// global middlewares and the user's router need to be connected here
+
+
 
 
 server.get('/', (req, res) => {
